@@ -33,7 +33,6 @@ jobs:
                 echo test, and deploy your project
 
     build-db:
-        needs: build
         runs-on: windows-latest
         steps:
           - run: echo "Hello Windows !!!"
