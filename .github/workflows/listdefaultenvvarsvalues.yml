@@ -6,7 +6,7 @@ on:
 jobs:
     mainjob:
         name: "Print the default environment variable"
-        runs-on: ubuntui-latest
+        runs-on: ubuntu-latest
 
         steps:
         - name: print-value-of-env-vars
