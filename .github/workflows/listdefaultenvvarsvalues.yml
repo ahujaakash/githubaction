@@ -1,0 +1,15 @@
+name: 'Default Environment Variables Values'
+
+on:
+    push:
+
+jobs:
+    mainjob:
+        name: "Print the default environment variable"
+        runs-on: ubuntui-latest
+
+        steps:
+        - name: print-value-of-env-vars
+          run: |
+            echo "$GITHUB_ACTION"
+            echo "$GITHUB_ENV"
