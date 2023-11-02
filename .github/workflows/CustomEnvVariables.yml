@@ -1,0 +1,29 @@
+name: A Basic Workflow
+
+on:
+    workflow_dispatch:
+
+env: # scoped for entire workflow
+    DAY_OF_WEEK: Funday
+    testvar: value-1
+
+jobs:
+    mainjob:
+        name: 'Print the env vars' # Name of Job
+        runs-on: ubuntu-latest
+
+        env: # Scoped for this job
+            Greeting: Dear
+            testvar: value-2
+
+        steps:
+        - name: print-value-of-env-vars
+          run: |
+            echo "$Greeting $First_Name. Today is $DAY_OF_WEEK!"
+            echo "testvar $testvar"
+            echo "testvar ${{ env.testvar }}"
+          env: # Scoped for this step within a job
+            First_Name: Student
+            testvar: value-3
+
+
