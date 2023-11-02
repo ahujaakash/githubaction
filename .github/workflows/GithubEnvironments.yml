@@ -1,0 +1,19 @@
+name: 'Github Environments'
+
+on:
+    workflow_dispatch:
+
+jobs:
+    mainjob: 
+        name: 'To get the secrets from github environments'
+        runs-on: ubuntu-latest
+
+        environment:
+            name: production #The name of the environment from which the secret is to be read
+            url: https://github.com
+
+        steps:
+          - name: 'Print secret from environment'
+            run: |
+                echo "APP_SECRET: ${{ secrets.APP_SECRET }}"
+
