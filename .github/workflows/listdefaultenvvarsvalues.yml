@@ -13,3 +13,4 @@ jobs:
           run: |
             echo "$GITHUB_ACTION"
             echo "$GITHUB_ENV"
+            echo "$RUNNER_NAME"
