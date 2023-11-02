@@ -15,5 +15,5 @@ jobs:
     - name: Use the value
       id: step_two
       run: |
-        echo "${{ env.action_state }}" # This will output yellow
+        echo "I am bottom:  ${{ env.action_state }}" # This will output yellow
  
