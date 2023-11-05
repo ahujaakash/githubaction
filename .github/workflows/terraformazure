@@ -1,0 +1,21 @@
+name: 'Deply Infra'
+
+on:
+    workflow_dispatch:
+
+jobs:
+    mainjob:
+        name: 
+        runs-on: ubuntu-latest
+        steps:
+          - name: Checkout 
+            uses: actions/checkout@v4
+
+          # Login into azure
+          - name: Azure Login
+            uses: Azure/login@v1.4.6
+            with:
+                
+
+                              
+ 
