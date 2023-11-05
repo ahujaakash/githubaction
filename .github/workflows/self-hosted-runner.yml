@@ -7,7 +7,7 @@ on:
 
 jobs:
   hello-self-hosted-runner:
-    runs-on: [self-hosted, Windows, X64, gpu]
+    runs-on: [self-hosted, Windows, X64]
     steps: 
     - name: run-me-inside-self-hosted-runner
       run:  echo "Howdy GitHub Actions. I know I am getting executed inside self hosted runner."
