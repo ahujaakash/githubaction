@@ -19,10 +19,10 @@ jobs:
 
 
             - name: Login to GHCR
-              uses: docker/login-action@v2
+              uses: docker/login-action@v4
               with:
                   registry: ghcr.io
-                  username: ${{ secrets.GITHUB_ACTOR }}
+                  username: ${{ github.actor }}
                   password: ${{ secrets.GITHUB_TOKEN }}
 
             - name: Extract metadata
