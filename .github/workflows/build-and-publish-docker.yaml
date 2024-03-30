@@ -1,0 +1,42 @@
+name: Build & publish Docker Image
+
+on:
+  release:
+    types: [publish]
+
+jobs:
+    push-to-docker-hub-ghcr:
+        runs-on: ubuntu-latest
+        permissions:
+            contents: read
+            packages: write
+
+
+        steps:
+            - name: Checkout
+              uses: actions/checkout@v2
+
+
+
+            - name: Login to GHCR
+              uses: docker/login-action@v2
+              with:
+                  registry: ghcr.io
+                  username: ${{ secrets.GITHUB_ACTOR }}
+                  password: ${{ secrets.GITHUB_TOKEN }}
+
+            - name: Extract metadata
+              uses: docker/metadata-action@v4
+              with:
+                  images: |
+                    ghcr.io/${{ github.repository }}/simple-node-api:latest
+
+
+            - name: Build and push
+              uses: docker/build-push-action@v4
+              with:
+                  context: .
+                  file: ./Dockerfile
+                  platforms: linux/amd64,linux/arm64
+                  push: true
+                  tags: ${{ secrets.DOCKER_USERNAME }}/my-image:latest
