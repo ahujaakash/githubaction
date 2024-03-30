@@ -2,7 +2,7 @@ name: Build & publish Docker Image
 
 on:
   release:
-    types: [publish]
+    types: [published]
 
 jobs:
     push-to-docker-hub-ghcr:
